@@ -21,8 +21,7 @@ want to download the code to:
 git clone https://github.com/d-evelopers/HellsAngel.git
 ```
 
-And then, when you are in the folder, run the command (With
-installed):
+And then, when you are in the folder, run the command:
 ```sh
 npm install
 ```
