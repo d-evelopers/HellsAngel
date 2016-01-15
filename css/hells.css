@@ -1,0 +1,31 @@
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    background-color: #333;
+}
+
+.sidebar ul {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar li {
+    list-style: none;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    border-bottom: solid 1px #ddd;
+}
+
+.sidebar li:hover{
+    background-color: #444;
+}
+
+.sidebar li img {
+    width: 25px;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    padding-left: 7px;
+}

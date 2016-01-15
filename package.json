@@ -1,0 +1,31 @@
+{
+  "name": "hells-angel",
+  "version": "0.0.1",
+  "description": "A game where you raise a devil girl",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node_modules/electron-prebuilt/dist/electron .",
+    "dev": "node_modules/electron-prebuilt/dist/electron . -dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d-evelopers/HellsAngel.git"
+  },
+  "keywords": [
+    "spanking",
+    "sim",
+    "game",
+    "electron"
+  ],
+  "author": "/d/evelopers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/d-evelopers/HellsAngel/issues"
+  },
+  "homepage": "https://github.com/d-evelopers/HellsAngel#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "electron-prebuilt": "^0.36.3"
+  }
+}
