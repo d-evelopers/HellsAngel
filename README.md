@@ -38,5 +38,5 @@ npm start
 Or, you can run it in debug mode, which will open up the Chrome
 DevTools and show the menubar of the application:
 ```sh
-npm start dev
+npm run dev
 ```
