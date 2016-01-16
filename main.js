@@ -1,11 +1,12 @@
 'use strict';
 
 // Modules
-const electron = require('electron');
+const Electron = require('electron');
 
 // Module immutable assignment
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
+const app = Electron.app;
+const BrowserWindow = Electron.BrowserWindow;
+const IPC = Electron.ipcMain;
 
 // If we pass in -dev to the runtime, we will open a debugger and show
 // the menu.
