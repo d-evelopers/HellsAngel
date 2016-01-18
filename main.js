@@ -2,6 +2,7 @@
 
 // Modules
 const Electron = require('electron');
+const fs = require('fs');
 
 // Module immutable assignment
 const app = Electron.app;
@@ -14,10 +15,13 @@ const devMode = !!(process.argv.filter(function(arg){
   return arg == "-dev";
 }).length);
 
+// Read in the configuration
+const config = JSON.parse(fs.readFileSync("config.json"));
+
 app.on('ready', function(){
   var window = new BrowserWindow({
-    'width': 800,
-    'height': 600
+    'width': config.width,
+    'height': config.height
   });
 
   if(devMode){
