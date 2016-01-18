@@ -25,7 +25,12 @@ app.on('ready', function(){
   });
 
   if(devMode){
-    window.webContents.openDevTools();
+    let editor = new BrowserWindow({
+      'width': config.width,
+      'height': config.height
+    });
+
+    editor.loadURL("file://" + __dirname + "/editor.html");
   } else {
     window.setMenu(null);
   }
