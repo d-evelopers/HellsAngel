@@ -1,0 +1,102 @@
+body{
+    margin: 0;
+    font-size: 16px;
+}
+
+input {
+  padding: 5px;
+  border-radius: 3px;
+  border: solid 1px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.name {
+  margin-left: 20px;
+  width: 300px;
+}
+
+.header{
+      background-color: #777;
+      padding: 20px;
+      color: white;
+      font-size: 20px;
+}
+
+.header > legend {
+    padding-right: 0;
+    float: left;
+}
+
+.header .new {
+  cursor: pointer;
+  font-size: 12px;
+  float: right;
+  margin-top: 10px;
+  text-decoration: underline;
+}
+
+.reactions > legend{
+  padding-top: 20px;
+  margin-bottom: 10px;
+}
+
+.level{
+  border-left: solid 1px #ddd;
+  border-radius: 20px;
+  margin: 20px;
+  margin-left: 10px;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+.reaction {
+  margin-left: 25px;
+  width: 90%;
+  margin-top: 10px;
+}
+
+.delete {
+  margin-left: 10px;
+  color: #f99;
+  cursor: pointer;
+}
+
+.delete:hover{
+  color: red;
+}
+
+.controls {
+  margin: 20px;
+}
+
+button{
+  border: solid 1px;
+  border-radius: 5px;
+  background-color: #222;
+  color: #fff;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: #444;
+}
+
+.add{
+  display: inline-block;
+  padding: 20px;
+  padding-top: 15px;
+  color: #00f;
+  cursor: pointer;
+}
+
+.add:hover{
+  font-weight: 800;
+}
