@@ -41,3 +41,25 @@ function bind(target, callback, event){
     })(targ[event]) : callback;
   });
 }
+
+/**
+ * Returns true if the passed-in element matches the passed-in
+ * selector.
+ *
+ * @param <Element>: The element to test for a selector.
+ * @param <String>: The CSS selector to check.
+ */
+function isSelector(element, selector){
+  return ~$$(selector).indexOf(element);
+}
+
+/**
+ * Fetches a snippet from the page source. Snippets are script tags of
+ * the type "snippet".
+ *
+ * @param <String>: The name of the snippet to fetch.
+ * @returns the contents of the snippet.
+ */
+function getSnippet(snippetName){
+  return $$("script[type='snippet'][data-name='" + encodeURIComponent(snippetName) + "']")[0].innerHTML;
+}
