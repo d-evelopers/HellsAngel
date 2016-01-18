@@ -6,8 +6,8 @@ const fs = require('fs');
 
 // Module immutable assignment
 const app = Electron.app;
+const ipc = Electron.ipcMain;
 const BrowserWindow = Electron.BrowserWindow;
-const IPC = Electron.ipcMain;
 
 // If we pass in -dev to the runtime, we will open a debugger and show
 // the menu.
