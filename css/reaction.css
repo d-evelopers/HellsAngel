@@ -14,6 +14,8 @@ ul {
     padding: 0;
 }
 
+/* Header specific stuff */
+
 .name {
     margin-left: 20px;
     width: 300px;
@@ -31,17 +33,18 @@ ul {
     float: left;
 }
 
-.header .new {
+.header a {
+    color: white;
     cursor: pointer;
     font-size: 12px;
     float: right;
     margin-top: 10px;
-    text-decoration: underline;
 }
 
-.reactions > legend{
-    padding-top: 20px;
-    margin-bottom: 10px;
+/* The editor itself */
+
+#editor > legend {
+    margin: 20px;
 }
 
 .level{
@@ -51,6 +54,8 @@ ul {
     margin-left: 10px;
     padding-top: 15px;
     padding-left: 15px;
+    list-style-type: decimal;
+    list-style-position: inside;
 }
 
 .reaction {
@@ -89,14 +94,12 @@ button:hover{
     background-color: #444;
 }
 
-.add{
+.addReaction, .addLevel{
+    color: #22d;
     display: inline-block;
-    padding: 20px;
-    padding-top: 15px;
-    color: #00f;
-    cursor: pointer;
+    margin: 20px;
 }
 
-.add:hover{
+.addLevel:hover, .addReaction:hover {
     font-weight: 800;
 }

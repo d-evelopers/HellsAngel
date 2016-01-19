@@ -34,14 +34,16 @@ function bind(target, callback, event){
 }
 
 /**
- * Returns true if the passed-in element matches the passed-in
- * selector.
- *
- * @param <Element>: The element to test for a selector.
- * @param <String>: The CSS selector to check.
+ * Traverses up the DOM, until it finds an element that matches the
+ * passed-in selector.
  */
-function isSelector(element, selector){
-  return ~$$(selector).indexOf(element);
+function closest(element, selector){
+  var parent = element.parentElement;
+  if(!parent){
+    return element;
+  }
+
+  return parent.matches(selector) ? parent : closest(parent, selector);
 }
 
 /**
@@ -51,6 +53,10 @@ function isSelector(element, selector){
  * @param <String>: The name of the snippet to fetch.
  * @returns the contents of the snippet.
  */
-function getSnippet(snippetName){
-  return $$("script[type='snippet'][data-name='" + encodeURIComponent(snippetName) + "']")[0].innerHTML;
+function getSnippet(name){
+  var selector = "script[type='snippet'][data-name='" + encodeURIComponent(name) + "']";
+  var element = document.createElement('div');
+
+  element.innerHTML =  $$(selector)[0].innerHTML;
+  return element.children[0];
 }

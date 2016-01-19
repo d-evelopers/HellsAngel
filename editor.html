@@ -9,44 +9,51 @@
     <script src="js/reaction.js"></script>
   </head>
   <body>
+    <!-- The pretty header -->
+    <div class="header">
+      <legend>Type of reaction:</legend>
+      <input type="text" class="name" />
+      <a href="javascript:void(0)" id="new">Add another?</a>
+    </div>
+
+    <!-- The editor itself -->
     <div id="editor">
-      <ul class="sections">
-        <li class="section">
-          <div class="header">
-            <legend>Type of reaction:</legend>
-            <input type="text" class="name" />
-            <div class="new">Add another?</div>
-          </div>
+      <legend>Reaction levels:</legend>
+      <ul class="levels">
+        <li class="level">
+          <a href="javascript:void(0)" class="delete">x</a>
           <ul class="reactions">
-            <legend>Reaction levels:</legend>
-            <li class="level">
-              <legend>
-                Level 1:
-                <span class="delete">x</span>
-              </legend>
-              <ul>
-                <li><input class="reaction" type="text"/><span class="delete">x</span></li>
-                <li><input class="reaction" type="text"/><span class="delete">x</span></li>
-              </ul>
-              <span class="add">Add [+]</span>
+            <li>
+              <input class="reaction" type="text"/><span class="delete">x</span>
             </li>
-            <li class="level">
-              <legend>
-                Level 2:
-                <span class="delete">x</span>
-              </legend>
-              <ul>
-                <li><input class="reaction" type="text"/><span class="delete">x</span></li>
-                <li><input class="reaction" type="text"/><span class="delete">x</span></li>
-              </ul>
-              <span class="add">Add [+]</span>
-            </li>
-           </ul>
+          </ul>
+          <a href="javascript:void(0)" class="addReaction">Add a reaction [+]</a>
         </li>
       </ul>
+      <a href="javascript:void(0)" class="addLevel">Add a reaction level [+]</a>
       <div class="controls">
         <button>Save</button>
       </div>
     </div>
+
+    <!-- Snippet for new reactions at a particular reaction level -->
+    <script type="snippet" data-name="reaction">
+      <li>
+        <input class="reaction" type="text"/><span class="delete">x</span>
+      </li>
+    </script>
+
+    <!-- Snippet for a new reaction level -->
+    <script type="snippet" data-name="level">
+     <li class="level">
+       <a href="javascript:void(0)" class="delete">x</a>
+       <ul class="reactions">
+         <li>
+           <input class="reaction" type="text"/><span class="delete">x</span>
+         </li>
+       </ul>
+       <a href="javascript:void(0)" class="addReaction">Add [+]</a>
+     </li>
+    </script>
   </body>
 </html>
