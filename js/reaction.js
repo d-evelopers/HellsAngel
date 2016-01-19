@@ -48,15 +48,17 @@ bind(window, function(){
   });
 
   // The open file dialog
-  bind("input[type=file]", function(e){
+  bind("div.open", function(e){
     var reader = new FileReader();
 
     reader.onload = function(){
       var reactions = JSON.parse(reader.result);
       var name = Object.keys(reactions)[0];
       var levels = document.querySelector('.levels');
+      var fileDiv = document.querySelector('div.open');
 
       levels.innerHTML = '';
+      fileDiv.innerHTML = fileDiv.innerHTML;
 
       document.querySelector(".name").value = name;
 
