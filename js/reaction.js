@@ -25,15 +25,21 @@ bind(window, function(){
   });
 
   bind("#save", function(){
-    var json = JSON.stringify($$(".level").map(function(level){
+    var reactions = {};
+
+    reactions[document.querySelector('.name').value] = $$(".level").map(function(level){
       return Array.prototype.map.call(level.querySelectorAll("input"), function(input){
         return input.value;
       });
-    }));
+    });
 
     var link = document.createElement('a');
     link.download = "reactions.json";
-    link.href = "data:text/json;charset=utf-8," + escape(json);
+    link.href = "data:text/json;charset=utf-8," + escape(JSON.stringify(reactions));
     link.click();
+  });
+
+  bind("#new", function(){
+    window.open(window.location.href);
   });
 }, 'onload');
