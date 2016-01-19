@@ -103,3 +103,13 @@ button:hover{
 .addLevel:hover, .addReaction:hover {
     font-weight: 800;
 }
+
+.open{
+    float: right;
+    margin-right: -150px;
+}
+
+.open > input {
+    border: none;
+    color: white;
+}

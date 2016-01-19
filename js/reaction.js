@@ -3,6 +3,7 @@
 bind(window, function(){
   document.querySelector("input").focus();
 
+  // The editor bindings
   bind("#editor", function(e){
     switch(true){
       case (e.target.matches(".delete")):
@@ -24,6 +25,7 @@ bind(window, function(){
     }
   });
 
+  // The save button
   bind("#save", function(){
     var reactions = {};
     var name = document.querySelector('.name').value;
@@ -40,7 +42,40 @@ bind(window, function(){
     link.click();
   });
 
+  // The new window button
   bind("#new", function(){
     window.open(window.location.href);
   });
+
+  // The open file dialog
+  bind("input[type=file]", function(e){
+    var reader = new FileReader();
+
+    reader.onload = function(){
+      var reactions = JSON.parse(reader.result);
+      var name = Object.keys(reactions)[0];
+      var levels = document.querySelector('.levels');
+
+      levels.innerHTML = '';
+
+      document.querySelector(".name").value = name;
+
+      reactions[name].forEach(function(reactions){
+        var level = getSnippet('level');
+
+        reactions.forEach(function(reaction){
+          var reactionElement = getSnippet('reaction');
+          reactionElement.querySelector('input').value = reaction;
+          level.querySelector('.reactions').appendChild(reactionElement);
+        });
+
+       var emptyRow = level.querySelector(".reactions > li");
+       emptyRow.parentElement.removeChild(emptyRow);
+
+        levels.appendChild(level);
+      });
+    };
+
+    reader.readAsText(e.target.files[0]);
+  }, "onchange");
 }, 'onload');
