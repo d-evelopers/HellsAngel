@@ -11,26 +11,33 @@ module.exports = class DevilGirl {
    * more and more of her mind back, the responses for various things
    * will be fetched further and further down the array.
    *
-   * @param <Object>: The object of arrays of arrays of quotes to
-   * fetch the things the devil girl says from. For example:
-   *
-   *   {
-   *    'pat-on-head': [
-   *      ["What are you doing?", "...", "Do you enjoy this?"],
-   *      ["Ok..", "Again?"],
-   *      ["That feels nice!", "Mmmmm!"]
-   *    ],
-   *    'talk': [
-   *        etc...
-   *    ]
-   *  }
    *
    * Basically, the more affectionate, the further down the list of
    * arrays responses might come from for a particular section.
    */
-  constructor(quotes){
-    this.quotes = quotes;
+  constructor(){
+    this.reactions = {};
     this.affection = 0;
+  }
+
+  /**
+   * Adds reactions that the Devil Girl can utilize.
+   *
+   * @param <Object>: The object with a key being the reaction type,
+   * and the array it is attached to is the arrays of quotes the
+   * things the devil girl says from.
+   *
+   * For example:
+   *
+   *   {'pat-on-head': [
+   *      ["What are you doing?", "...", "Do you enjoy this?"],
+   *      ["Ok..", "Again?"],
+   *      ["That feels nice!", "Mmmmm!"]
+   *   ]}
+   */
+  addReactions(reaction){
+    var type = Object.keys(reaction)[0];
+    this.reactions[type] = reaction[type];
   }
 
   /**
@@ -44,17 +51,19 @@ module.exports = class DevilGirl {
   }
 
   /**
-   * Fetches a random reaction for the current affection level in the
-   * specified section of the quotes object.
+   * Fetches a random reaction for the passed-in intensity level in
+   * the specified section of the quotes object.
    *
    * @param <String>: Which kind of action should the quote be fetched
    * for?
+   * @param <Number>: What is the intensity of the reaction we want?
+   *
    * @return <String>: a random reaction according to the current
    * affection and the passed-in action.
    */
-  getReaction(action){
-    let quotes = this.quotes[action];
-    let index = Math.round(Math.random()) + Math.floor(this.affection / 100);
+  getReaction(type, intensity){
+    let quotes = this.reactions[type];
+    let index = Math.round(Math.random()) + Math.floor(intensity / 100);
 
     return this.pick(quotes[Math.min(quotes.length, index)]);
   }
