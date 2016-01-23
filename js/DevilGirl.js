@@ -17,7 +17,10 @@ module.exports = class DevilGirl {
    */
   constructor(){
     this.reactions = {};
+
     this.affection = 0;
+    this.fear = 0;
+    this.discipline = 0;
   }
 
   /**
