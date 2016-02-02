@@ -13,15 +13,23 @@ IPC.on('devil-girl-reactions', function(event, reactions){
 // Elements
 function showMessage(text){
   let messages = document.getElementById("messages");
+  let lines = messages.getElementsByTagName('p');
+
   messages.className = "visible";
 
-  if(messages.getElementsByTagName('p').length < 2){
+  if(lines.length < 2){
     let element = document.createElement('p');
     element.textContent = text;
+
     messages.appendChild(element);
   } else {
-    messages.removeChild(messages.getElementsByTagName('p')[0]);
-    showMessage(text);
+    let target = lines[0];
+    target.className = "removed";
+
+    setTimeout(function(){
+      messages.removeChild(target);
+      showMessage(text);
+    }, 300);
   }
 }
 

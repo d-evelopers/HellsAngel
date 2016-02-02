@@ -39,9 +39,19 @@
     height: 100px;
     background-color: #eee;
     padding: 20px;
+    overflow: hidden;
     transition: bottom 0.5s;
 }
 
 #messages.visible {
     bottom: 10px;
+}
+
+#messages p{
+    transition-duration: 0.5s;
+}
+
+#messages p.removed {
+    margin-top: -46px;
+    margin-bottom: 33px;
 }
