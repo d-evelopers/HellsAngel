@@ -9,3 +9,24 @@ const girl = new DevilGirl();
 IPC.on('devil-girl-reactions', function(event, reactions){
   girl.addReactions(reactions);
 });
+
+// Elements
+function showMessage(text){
+  let messages = document.getElementById("messages");
+  messages.className = "visible";
+
+  if(messages.getElementsByTagName('p').length < 2){
+    let element = document.createElement('p');
+    element.textContent = text;
+    messages.appendChild(element);
+  } else {
+    messages.removeChild(messages.getElementsByTagName('p')[0]);
+    showMessage(text);
+  }
+}
+
+function hideMessages(){
+  let messages = document.getElementById("messages");
+  messages.className = "";
+  messages.innerHTML = "";
+}

@@ -28,3 +28,20 @@
     padding-bottom: 4px;
     padding-left: 7px;
 }
+
+#messages {
+    border: 1px solid;
+    border-radius: 15px;
+    position: fixed;
+    bottom: -200px;
+    left: 20px;
+    right: 20px;
+    height: 100px;
+    background-color: #eee;
+    padding: 20px;
+    transition: bottom 0.5s;
+}
+
+#messages.visible {
+    bottom: 10px;
+}
