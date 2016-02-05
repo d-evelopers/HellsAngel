@@ -5,8 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node_modules/electron-prebuilt/dist/electron .",
-    "dev": "node_modules/electron-prebuilt/dist/electron . -dev"
+    "start": "node_modules/.bin/electron .",
+    "dev": "node_modules/.bin/electron . -dev"
   },
   "repository": {
     "type": "git",
