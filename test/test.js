@@ -5,7 +5,7 @@ describe("DevilGirl", function(){
   var devilGirl = new DevilGirl();
 
   it("should be initialized with empty fields", function(){
-    assert(Object.keys(devilGirl.reactions), 0);
+    assert.lengthOf(Object.keys(devilGirl.reactions), 0);
     assert.equal(devilGirl.fear, 0);
     assert.equal(devilGirl.affection, 0);
     assert.equal(devilGirl.discipline, 0);
