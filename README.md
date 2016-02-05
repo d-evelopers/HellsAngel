@@ -35,8 +35,11 @@ normally like so:
 npm start
 ```
 
-Or, you can run it in debug mode, which will open up the Chrome
-DevTools and show the menubar of the application:
+Or, you can run it in debug mode like:
 ```sh
 npm run dev
 ```
+In addition to starting the game, this will:
+- Show the menubar of the application
+- Open the reaction editor
+- ...and drop the console to a REPL
