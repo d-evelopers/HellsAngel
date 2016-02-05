@@ -3,6 +3,8 @@ Hell's Angel is a game where you somehow find a devil girl in your
 care. Neither of you know where she came from, but if she is going to
 live with you, she is going to have to live under your rules.
 
+[![Build Status](https://travis-ci.org/d-evelopers/HellsAngel.svg?branch=master)](https://travis-ci.org/d-evelopers/HellsAngel)
+
 ## Prerequisates ##
 You will first need [Node.js](https://nodejs.org/en/) insatlled on
 your system to develop or use Hell's Angel.
