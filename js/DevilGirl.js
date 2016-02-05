@@ -50,7 +50,7 @@ module.exports = class DevilGirl {
    * @returns a random element from said Array.
    */
   pick(array){
-    return array ? array[Math.round(Math.random() * array.length)] : null;
+    return array ? array[Math.floor(Math.random() * array.length)] : null;
   }
 
   /**
@@ -69,7 +69,7 @@ module.exports = class DevilGirl {
     let quotes = this.reactions[type];
     let index = Math.round(Math.random()) + Math.floor(intensity / 100);
 
-    return this.pick(quotes[Math.min(quotes.length, index)]);
+    return this.pick(quotes[Math.min(quotes.length - 1, index)]);
   }
 
   /**
