@@ -3,6 +3,7 @@
 // Modules
 const Electron = require('electron');
 const fs = require('fs');
+const repl = require('repl');
 
 // Module immutable assignment
 const app = Electron.app;
@@ -44,3 +45,16 @@ app.on('ready', function(){
   // If we require this file, we can play with the window instance.
   exports.window = window;
 });
+
+if(devMode){
+  let context = repl.start({
+    'prompt': "Hells Angel> ",
+    'input': process.stdin,
+    'output': process.stdout
+  }).context;
+
+  context.config = config;
+  context.app = app;
+  context.ipc = ipc;
+  context.BrowserWindow = BrowserWindow;
+}
