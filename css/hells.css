@@ -55,3 +55,38 @@
     margin-top: -46px;
     margin-bottom: 33px;
 }
+
+@keyframes bounce{
+    from{
+        bottom: 30px;
+    }
+
+    to {
+        bottom: 35px;
+    }
+}
+
+.arrowbox {
+	position: absolute;
+	background: #000000;
+	bottom: 30px;
+	right: 50px;
+	animation-name: bounce;
+	animation-direction: alternate;
+	animation-duration: 0.5s;
+	animation-iteration-count: infinite;
+}
+.arrowbox:after {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(0, 0, 0, 0);
+	border-top-color: #000000;
+	border-width: 10px;
+	margin-left: -10px;
+}
