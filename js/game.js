@@ -38,3 +38,9 @@ function hideMessages(){
   messages.className = "";
   messages.innerHTML = "";
 }
+
+// Warning about no scenario, because there is no story yet.
+bind(window, function(){
+  showMessage("Sorry to say, but there is no scenario for this game... (Yet!)");
+  showMessage("Most new work is only visible in Developer mode. (Which you can get to with \"npm run dev\")");
+}, 'onload');
