@@ -29,7 +29,7 @@ app.on('ready', function(){
     window.setMenu(null);
   }
 
-  window.loadURL("file://" + __dirname + "/interface.html");
+  window.loadURL("file://" + __dirname + "/interface/interface.html");
 
   window.on('closed', function(){
     exports.window = null;

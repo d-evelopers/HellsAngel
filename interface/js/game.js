@@ -2,7 +2,7 @@
 
 // The modules
 const IPC = require('electron').ipcRenderer;
-const DevilGirl = require('./js/DevilGirl');
+const DevilGirl = require('./js/classes/DevilGirl');
 const girl = new DevilGirl();
 
 // Populating game data from the server...eventually

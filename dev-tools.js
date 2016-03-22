@@ -17,7 +17,7 @@ const defaultContext = {
       'height': 600
     });
 
-    editor.loadURL("file://" + __dirname + "/editor.html");
+    editor.loadURL("file://" + __dirname + "/interface/editor.html");
   },
   'help': function(){
     console.log("Available variables are are: " + Object.keys(this).filter(
