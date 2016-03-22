@@ -3,7 +3,6 @@
 // Modules
 const Electron = require('electron');
 const fs = require('fs');
-const repl = require('repl');
 
 // Module immutable assignment
 const app = Electron.app;
@@ -26,12 +25,6 @@ app.on('ready', function(){
   });
 
   if(devMode){
-    let editor = new BrowserWindow({
-      'width': config.width,
-      'height': config.height
-    });
-
-    editor.loadURL("file://" + __dirname + "/editor.html");
   } else {
     window.setMenu(null);
   }
@@ -47,14 +40,9 @@ app.on('ready', function(){
 });
 
 if(devMode){
-  let context = repl.start({
-    'prompt': "Hells Angel> ",
-    'input': process.stdin,
-    'output': process.stdout
-  }).context;
-
-  context.config = config;
-  context.app = app;
-  context.ipc = ipc;
-  context.BrowserWindow = BrowserWindow;
+  require('./dev-tools')({
+    'app': app,
+    'ipc': ipc,
+    'BrowserWindow': BrowserWindow
+  });
 }
