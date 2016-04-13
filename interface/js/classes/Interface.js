@@ -8,26 +8,13 @@ module.exports = class Interface {
    */
   static showMessage(text){
     let messages = document.getElementById("messages");
-    let lines = messages.getElementsByTagName('p');
-    let arrowBox = document.getElementById('arrowbox');
+    let arrowBox = document.getElementById("arrowbox");
+    let element = document.createElement("p");
 
-    arrowBox.className = "hidden";
+    element.textContent = text;
+    messages.insertBefore(element, messages.querySelector("p"));
     messages.className = "visible";
-
-    if(lines.length < 2){
-      let element = document.createElement('p');
-      element.textContent = text;
-      messages.appendChild(element);
-
-      arrowBox.className = '';
-    } else {
-      setTimeout(function(){
-        let target = lines[0];
-        target.className = "removed";
-        messages.removeChild(target);
-        Interface.showMessage(text);
-      }, 300);
-    }
+    arrowBox.className = "";
   }
 
   /**
@@ -35,8 +22,10 @@ module.exports = class Interface {
    */
   static hideMessages(){
     let messages = document.getElementById("messages");
+    let arrowBox = document.getElementById("arrowbox");
+
     messages.className = "";
     messages.innerHTML = "";
-    document.getElementById('arrowbox').className = 'hidden';
+    arrowBox.className = "hidden";
   }
 };

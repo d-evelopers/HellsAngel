@@ -41,6 +41,12 @@
     padding: 20px;
     overflow: hidden;
     transition: bottom 0.5s;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#messages p:only-of-type{
+    margin-bottom: 65px;
 }
 
 #messages.visible {
@@ -48,12 +54,9 @@
 }
 
 #messages p{
-    transition-duration: 0.5s;
-}
-
-#messages p.removed {
-    margin-top: -46px;
-    margin-bottom: 33px;
+    font-size: 19px;
+    font-weight: 100;
+    margin-bottom: 10px;
 }
 
 @keyframes bounce{
@@ -67,27 +70,27 @@
 }
 
 #arrowbox {
-	position: absolute;
-	background: #000000;
-	bottom: 30px;
-	right: 50px;
-	animation-name: bounce;
-	animation-direction: alternate;
-	animation-duration: 0.5s;
-	animation-iteration-count: infinite;
+    position: absolute;
+    background: #000000;
+    bottom: 30px;
+    right: 50px;
+    animation-name: bounce;
+    animation-direction: alternate;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
 }
 
 #arrowbox:after {
-	top: 100%;
-	left: 50%;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
-	border-color: rgba(0, 0, 0, 0);
-	border-top-color: #000000;
-	border-width: 10px;
-	margin-left: -10px;
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(0, 0, 0, 0);
+    border-top-color: #000000;
+    border-width: 10px;
+    margin-left: -10px;
 }
