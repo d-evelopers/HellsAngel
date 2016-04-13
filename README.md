@@ -43,5 +43,8 @@ npm run dev
 ```
 In addition to starting the game, this will:
 - Show the menubar of the application
-- Open the reaction editor
 - ...and drop the console to a REPL
+
+In the REPL, you can type `reactionEditor()` to open the respective
+window, or `help()` to get a list of the things you can use. (There is
+Tab completion so you can explore..!)
