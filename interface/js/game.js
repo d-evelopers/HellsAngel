@@ -1,12 +1,12 @@
 'use strict';
 
 // The modules
-const IPC = require('electron').ipcRenderer;
+const ipc = require('electron').ipcRenderer;
 const DevilGirl = require('./js/classes/DevilGirl');
 const girl = new DevilGirl();
 
 // Populating game data from the server...eventually
-IPC.on('devil-girl-reactions', function(event, reactions){
+ipc.on('devil-girl-reactions', function(event, reactions){
   girl.addReactions(reactions);
 });
 
@@ -47,12 +47,20 @@ function hideArrow(){
   document.getElementById('arrowbox').className = 'hidden';
 }
 
+function playScript(script){
+  JSON.parse(script.toString()).forEach(function(line){
+    line.text.forEach(showMessage);
+    showArrow();
+  });
+}
+
+ipc.on('script-response', function(e, script){
+  playScript(script);
+});
+
 // Warning about no scenario, because there is no story yet.
 bind(window, function(){
-  showMessage("Sorry to say, but there is no scenario for this game... (Yet!)");
-  showMessage("Most new work is only visible in Developer mode. (Which you can get to with \"npm run dev\")");
-  showArrow();
-
+  ipc.send('request-script', "empty.json");
   bind("body", function(){
     hideArrow();
     hideMessages();

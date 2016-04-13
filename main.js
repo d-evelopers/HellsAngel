@@ -3,6 +3,7 @@
 // Modules
 const Electron = require('electron');
 const fs = require('fs');
+const path = require('path');
 
 // Module immutable assignment
 const app = Electron.app;
@@ -37,6 +38,16 @@ app.on('ready', function(){
 
   // If we require this file, we can play with the window instance.
   exports.window = window;
+});
+
+ipc.on("request-script", function(e, script){
+  fs.readFile(path.join(__dirname, "scripts", script.replace(/\.{2,}/g, ".")), function(err, data){
+    if(!err){
+      e.sender.send("script-response", data);
+    } else {
+      console.error("Failed to open file requested by client:", script, "\n", err);
+    }
+  });
 });
 
 if(devMode){
