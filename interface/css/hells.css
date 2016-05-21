@@ -94,3 +94,18 @@
     border-width: 10px;
     margin-left: -10px;
 }
+
+#namebox{
+    position: absolute;
+    bottom: 142px;
+    left: 60px;
+    z-index: 1;
+    background-color: #eee;
+    border: solid 1px;
+    border-radius: 5px;
+    padding: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 800;
+    font-size: 14px;
+}

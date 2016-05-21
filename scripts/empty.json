@@ -1,5 +1,6 @@
 [
-  {"text": [
+  {"name": "???",
+   "text": [
     "Sorry to say, but there is no scenario for this game... (Yet!)",
     "Most new work is only visible in Developer mode.",
     "(Which you can get to with \"npm run dev\")"

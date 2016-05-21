@@ -17,7 +17,10 @@ const girl = new DevilGirl();
 function playScript(script){
   JSON.parse(script.toString()).forEach(function(line){
     let text = line.text;
+
+    // 2 lines can be displayed at a time, so take the first two
     text.splice(0, 2).forEach(display.showMessage);
+    display.setName(line.name);
     register(function(){
       display.showMessage(text.shift());
 

@@ -2,6 +2,7 @@
 
 const messages = document.getElementById("messages");
 const arrowBox = document.getElementById("arrowbox");
+const nameBox = document.getElementById("namebox");
 
 /**
  * Displays a message in the message dialogue.
@@ -27,4 +28,16 @@ module.exports.hideMessages = function(){
   nameBox.className = "hidden";
 };
 
+/**
+ * Sets the name on the text box to something.
+ *
+ * If set to nothing, the name field is hidden instead.
+ */
+module.exports.setName = function(name){
+  if(name){
+    nameBox.className = "";
+    nameBox.textContent = name;
+  } else {
+    nameBox.className = "hidden";
+  }
 };
