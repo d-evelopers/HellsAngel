@@ -1,13 +1,14 @@
 'use strict';
 
+const messages = document.getElementById("messages");
+const arrowBox = document.getElementById("arrowbox");
+
 /**
  * Displays a message in the message dialogue.
  *
  * @param <String>: The text to display in the buffer.
  */
 module.exports.showMessage = function(text){
-  let messages = document.getElementById("messages");
-  let arrowBox = document.getElementById("arrowbox");
   let element = document.createElement("p");
 
   element.textContent = text;
@@ -16,15 +17,14 @@ module.exports.showMessage = function(text){
   arrowBox.className = "";
 };
 
-
 /**
  * Hides the message dialogue from the interface..
  */
 module.exports.hideMessages = function(){
-  let messages = document.getElementById("messages");
-  let arrowBox = document.getElementById("arrowbox");
-
   messages.className = "";
   messages.innerHTML = "";
   arrowBox.className = "hidden";
+  nameBox.className = "hidden";
+};
+
 };

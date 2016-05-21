@@ -2,9 +2,9 @@
 
 // The modules
 const ipc = require('electron').ipcRenderer;
+const display = require('./display');
 
-const display = require('./js/display');
-const DevilGirl = require('./js/classes/DevilGirl');
+const DevilGirl = require('./classes/DevilGirl');
 
 const girl = new DevilGirl();
 
@@ -55,7 +55,7 @@ function nextAction(){
   }
 }
 
-bind(window, function(){
+module.exports = function(){
   // Warning about no scenario, because there is no story yet.
   ipc.send('request-script', "empty.json");
 
@@ -63,4 +63,4 @@ bind(window, function(){
   bind("body", function(){
     nextAction();
   });
-}, 'onload');
+};
