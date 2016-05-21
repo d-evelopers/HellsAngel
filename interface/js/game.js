@@ -3,7 +3,7 @@
 // The modules
 const ipc = require('electron').ipcRenderer;
 
-const Interface = require('./js/classes/Interface');
+const display = require('./js/display');
 const DevilGirl = require('./js/classes/DevilGirl');
 
 const girl = new DevilGirl();
@@ -17,12 +17,12 @@ const girl = new DevilGirl();
 function playScript(script){
   JSON.parse(script.toString()).forEach(function(line){
     let text = line.text;
-    text.splice(0, 2).forEach(Interface.showMessage);
+    text.splice(0, 2).forEach(display.showMessage);
     register(function(){
-      Interface.showMessage(text.shift());
+      display.showMessage(text.shift());
 
       if(!text.length){
-        register(Interface.hideMessages);
+        register(display.hideMessages);
       }
     });
   });
