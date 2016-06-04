@@ -60,7 +60,7 @@ function nextAction(){
 
 module.exports = function(flags){
   // Warning about no scenario, because there is no story yet.
-  ipc.send('request-script', "empty.json");
+  ipc.send('request-script', flags.devMode ? "dev-mode.json" : "empty.json");
 
   // Clicking the body should trigger the nextAction() function.
   bind("body", function(){
