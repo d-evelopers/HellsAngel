@@ -42,7 +42,8 @@ Or, you can run it in debug mode like:
 npm run dev
 ```
 In addition to starting the game, this will:
-- Show the menubar of the application
+- Show the menubar of the application (Allowing access to the Blink
+  devtools)
 - ...and drop the console to a REPL
 
 In the REPL, you can type `reactionEditor()` to open the respective
