@@ -50,6 +50,12 @@ ipc.on("request-script", function(e, script){
   });
 });
 
+ipc.on("flags", function(e){
+  e.sender.send("flags", {
+    'devMode': devMode
+  });
+});
+
 if(devMode){
   require('./dev-tools')({
     'app': app,

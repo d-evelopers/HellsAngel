@@ -1,3 +1,9 @@
+const ipc = require('electron').ipcRenderer;
+
 bind(window, function(){
-  require("./js/game")();
+  ipc.on('flags', function(e, flags){
+    require("./js/game")(flags);
+  });
+
+  ipc.send('flags');
 }, 'onload');

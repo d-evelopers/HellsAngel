@@ -58,7 +58,7 @@ function nextAction(){
   }
 }
 
-module.exports = function(){
+module.exports = function(flags){
   // Warning about no scenario, because there is no story yet.
   ipc.send('request-script', "empty.json");
 
