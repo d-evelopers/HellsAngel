@@ -30,24 +30,34 @@
 }
 
 #messages {
+    position: relative;
     border: 1px solid;
     border-radius: 15px;
     height: 100px;
     background-color: #eee;
     padding: 20px;
     overflow: hidden;
-    display: flex;
-    flex-direction: column-reverse;
+    white-space: nowrap;
+    text-align: left;
 }
 
-#messages p:only-of-type{
-    margin-bottom: 65px;
+#messages p:last-of-type{
+    bottom: 20px;
 }
+
+#messages p:nth-last-of-type(2), #messages p:last-of-type:only-of-type{
+    bottom: 60px;
+}
+
 
 #messages p{
+    bottom: 0px;
+    display: inline-block;
+    position: absolute;
+    bottom: 200px;
     font-size: 19px;
     font-weight: 100;
-    margin-bottom: 10px;
+    overflow: hidden;
 }
 
 @keyframes bounce{

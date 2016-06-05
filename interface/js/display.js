@@ -10,13 +10,30 @@ const nameBox = document.getElementById("namebox");
  *
  * @param <String>: The text to display in the buffer.
  */
-module.exports.showMessage = function(text){
+module.exports.showMessage = function(text, callback){
   let element = document.createElement("p");
-
   element.textContent = text;
-  messages.insertBefore(element, messages.querySelector("p"));
+  element.style.visibility = "hidden";
+
+  messages.appendChild(element);
+  arrowBox.className = "hidden";
+
+  let width = element.offsetWidth;
+  element.style.width = "0px";
+  element.style.visibility = "visible";
+  element.style.transition = "width " + (width/400) + "s linear";
+
+  element.addEventListener('transitionend', function once(){
+    arrowBox.className = "";
+    element.removeEventListener('transitionend', once);
+    callback.call(element, text);
+  });
+
   messageBox.className = "visible";
-  arrowBox.className = "";
+
+  setTimeout(function(){
+    element.style.width = width + "px";
+  }, messages.children.length == 1 ? 500 : 100);
 };
 
 /**
