@@ -1,0 +1,10 @@
+#characters img {
+    /* The width of the sidebar */
+    margin-left: 40px;
+    height: 400px;
+    transition: all 1s;
+}
+
+#characters .fade {
+    opacity: 0;
+}
