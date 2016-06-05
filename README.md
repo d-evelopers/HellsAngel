@@ -49,3 +49,19 @@ In addition to starting the game, this will:
 In the REPL, you can type `reactionEditor()` to open the respective
 window, or `help()` to get a list of the things you can use. (There is
 Tab completion so you can explore..!)
+
+## Troubleshooting ##
+This section is for common questions about getting things up and
+running. If I get asked a question that isn't in this section
+enough--I'll add it..!
+
+### Halp! `git pull` broke something! ###
+Usually, this is because of a dependency change and can usually be
+fixed with `npm update`.
+
+If that does not solve it, copy any files you have added that you want
+to keep, run `git clean -df` and then `npm install`.
+
+If that doesn't do it either... Post a
+[bug](https://github.com/d-evelopers/HellsAngel/issues), and I'll see
+what I can do for you!
