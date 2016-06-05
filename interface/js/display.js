@@ -4,6 +4,7 @@ const messages = document.getElementById("messages");
 const messageBox = document.getElementById("messagebox");
 const arrowBox = document.getElementById("arrowbox");
 const nameBox = document.getElementById("namebox");
+const characters = document.getElementById("characters");
 
 /**
  * Displays a message in the message dialogue.
@@ -58,4 +59,36 @@ module.exports.setName = function(name){
   } else {
     nameBox.className = "hidden";
   }
+};
+
+/**
+ * Renders a character as passed in.
+ *
+ * @param character <Object>: The specifications of the character to
+ * be rendered with a src attribute pointing at the imgage source, and
+ * a position denoting where you wish to put the character.
+ */
+module.exports.renderCharacter = function(character){
+  let char = document.createElement("img");
+  char.src = character.src;
+  char.className = character.position;
+
+  Array.apply(null, characters.getElementsByClassName(character.position)).forEach(function(targ){
+    targ.parentElement.removeChild(targ);
+  });
+
+  characters.appendChild(char);
+};
+
+/**
+ * Applies an effect to the character at the passed-in location.
+ *
+ * @param position <String>: The position of the character to apply
+ * the effect to.
+ * @param effect <String>: The name of the effect to apply.
+ */
+module.exports.applyCharacterEffect = function(position, effect){
+  Array.apply(null, characters.getElementsByClassName(position)).forEach(function(targ){
+    targ.className += " " + effect;
+  });
 };

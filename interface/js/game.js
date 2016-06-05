@@ -17,6 +17,11 @@ const girl = new DevilGirl();
 function playScript(script){
   JSON.parse(script.toString()).forEach(function(line){
     let text = line.text;
+    let char = line.character;
+
+    if(char){
+      display.renderCharacter(char);
+    }
 
     display.setName(line.name);
     display.showMessage(text.shift(), (function next(line){
@@ -26,6 +31,9 @@ function playScript(script){
           display.showMessage(text.shift(), next);
         } else {
           display.hideMessages();
+          if(char && char.finish){
+            display.applyCharacterEffect(char.position, char.finish);
+          }
         }
       });
     }));

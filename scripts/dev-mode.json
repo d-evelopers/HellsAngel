@@ -1,5 +1,10 @@
 [
   {"name": "The mysterious question mark",
+   "character": {
+     "src": "./sprites/Placeholder.svg",
+     "position": "left",
+     "finish": "fade"
+   },
    "text": [
      "Welcome to developer mode!",
      "This mode was made to experiment and develop new features without affecting",
@@ -7,5 +12,6 @@
      "From this window, you can access the Blink developer tools from the \"View\"",
      "drop-down, or use the console to open other development tools that have been",
      "made so far. (Such as the reaction editor by running \"reactionEditor()\")"
-  ]}
+   ]
+  }
 ]
