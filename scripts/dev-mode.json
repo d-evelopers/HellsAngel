@@ -6,6 +6,6 @@
      "the content seen in the game when run normally...",
      "From this window, you can access the Blink developer tools from the \"View\"",
      "drop-down, or use the console to open other development tools that have been",
-     "made so far. (Such as the reaction editor)"
+     "made so far. (Such as the reaction editor by running \"reactionEditor()\")"
   ]}
 ]
