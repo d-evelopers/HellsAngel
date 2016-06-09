@@ -54,7 +54,7 @@ module.exports = class Actor {
    * @param <Number>: What is the intensity of the reaction we want?
    *
    * @return <String>: a random reaction according to the current
-   * affection and the passed-in action.
+   * intensity and the passed-in action.
    */
   getReaction(type, intensity){
     intensity = intensity || 0;
