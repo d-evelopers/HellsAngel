@@ -17,7 +17,7 @@ module.exports = class Actor {
   /**
    * Adds reactions that the Actor can utilize.
    *
-   * @param <Object>: The object with a key being the reaction type,
+   * @param <Object>: The object with the keys being a reaction type,
    * and the array it is attached to is the arrays of quotes the
    * things the Actor can say things from.
    *
@@ -30,8 +30,9 @@ module.exports = class Actor {
    *   ]}
    */
   addReactions(reaction){
-    var type = Object.keys(reaction)[0];
-    this.reactions[type] = reaction[type];
+    for(var type in reaction){
+      this.reactions[type] = reaction[type];
+    }
   }
 
   /**
