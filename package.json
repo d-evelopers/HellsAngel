@@ -4,9 +4,9 @@
   "description": "A game where you raise a devil girl",
   "main": "main.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha",
-    "start": "node_modules/.bin/electron .",
-    "dev": "node_modules/.bin/electron . -dev"
+    "test": "electron-mocha",
+    "start": "electron .",
+    "dev": "electron . -dev"
   },
   "repository": {
     "type": "git",
@@ -24,10 +24,11 @@
     "url": "https://github.com/d-evelopers/HellsAngel/issues"
   },
   "homepage": "https://github.com/d-evelopers/HellsAngel#readme",
-  "dependencies": {},
+  "dependencies": {
+    "electron-prebuilt": "^1.2.6"
+  },
   "devDependencies": {
     "chai": "^3.5.0",
-    "electron-prebuilt": "^0.36.3",
-    "mocha": "^2.4.5"
+    "electron-mocha": "^2.3.0"
   }
 }
