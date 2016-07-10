@@ -1,7 +1,7 @@
 var assert = require("chai").assert;
 
 describe("Actor", function(){
-  var Actor = require("../interface/js/classes/Actor");
+  var Actor = require("../../interface/js/classes/Actor");
   var actor = new Actor();
 
   it("should be initialized with an empty reaction object", function(){
@@ -29,7 +29,7 @@ describe("Actor", function(){
 });
 
 describe("DevilGirl", function(){
-  var DevilGirl = require("../interface/js/classes/DevilGirl");
+  var DevilGirl = require("../../interface/js/classes/DevilGirl");
   var devilGirl = new DevilGirl();
 
   it("should be initialized with empty fields", function(){

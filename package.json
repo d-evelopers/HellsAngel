@@ -4,7 +4,9 @@
   "description": "A game where you raise a devil girl",
   "main": "main.js",
   "scripts": {
-    "test": "electron-mocha",
+    "test": "run-s test-backend test-frontend",
+    "test-backend": "electron-mocha test/back",
+    "test-frontend": "electron-mocha --renderer test/front",
     "start": "electron .",
     "dev": "electron . -dev"
   },
@@ -29,6 +31,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "electron-mocha": "^2.3.0"
+    "electron-mocha": "^2.3.0",
+    "npm-run-all": "^2.3.0"
   }
 }
