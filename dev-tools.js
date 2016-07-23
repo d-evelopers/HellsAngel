@@ -6,19 +6,38 @@ const fs = require('fs');
 
 const BrowserWindow = Electron.BrowserWindow;
 
-const defaultContext = {
-  /**
-   * The neat reaction editor. Call it and you will get a new reaction
-   * editor window to play with.
-   */
-  'reactionEditor': function(){
+/**
+ * Returns a function that, when called, will open a window with the
+ * name passed in.
+ *
+ * @param <String>: The name of the editor you wish to open with the
+ * resulting function.
+ *
+ * @return a function that, when called, will show a new BrowserWindow
+ * with the editor specified loaded in it.
+ */
+function devWindow(name){
+  return function(){
     let editor = new BrowserWindow({
       'width': 800,
       'height': 600
     });
 
-    editor.loadURL("file://" + __dirname + "/interface/editor.html");
-  },
+    editor.loadURL("file://" + __dirname + "/interface/" + name + ".html");
+  };
+}
+
+const defaultContext = {
+  /**
+   * The neat reaction editor. Call it and you will get a new reaction
+   * editor window to play with.
+   */
+  'reactionEditor': devWindow("editor"),
+  /**
+   * A script editor that allows you to modify and create story
+   * scripts.
+   */
+  'scriptEditor': devWindow("scripts"),
   'help': function(){
     console.log("Available variables are are: " + Object.keys(this).filter(
       key => typeof this[key] !== 'function'
