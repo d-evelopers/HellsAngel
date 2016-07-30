@@ -1,0 +1,61 @@
+body{
+    margin: 0;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+input {
+    padding: 5px;
+    border-radius: 3px;
+    border: solid 1px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+button{
+    border: solid 1px;
+    border-radius: 5px;
+    background-color: #222;
+    color: #fff;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #444;
+}
+
+
+/* Header specific stuff */
+
+.name {
+    margin-left: 20px;
+    width: 300px;
+}
+
+.header{
+    background-color: #777;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+}
+
+.header > legend {
+    padding-right: 0;
+    float: left;
+}
+
+.header a {
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+    float: right;
+    margin-top: 10px;
+    margin-left: 10px;
+}

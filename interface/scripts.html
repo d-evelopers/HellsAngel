@@ -4,10 +4,20 @@
     <meta charset="UTF-8"/>
     <title>Script editor</title>
     <link href="css/main.css" rel="stylesheet"/>
+    <link href="css/editor.css" rel="stylesheet"/>
+    <link href="css/scripts.css" rel="stylesheet"/>
     <script src="js/hells.js"></script>
     <script src="js/scripter.js"></script>
   </head>
   <body>
+    <!-- The pretty header -->
+    <div class="header">
+      <legend>Script Name:</legend>
+      <input type="text" class="name" />
+      <a href="javascript:void(0)" id="open">Open</a>
+      <a href="javascript:void(0)" id="new">New</a>
+    </div>
+
     <div id="editor"></div>
   </body>
 </html>

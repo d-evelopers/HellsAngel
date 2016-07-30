@@ -1,0 +1,32 @@
+#editor{
+    margin: 25px;
+}
+
+.container {
+    position: relative;
+}
+
+.sprite {
+    max-height: 200px;
+    margin-left: 20px;
+}
+
+.characterName {
+    display: block;
+    width: 200px;
+}
+
+.textList{
+    position: absolute;
+    top: 0;
+    left: 200px;
+    right: 10px;
+}
+
+.textList li {
+    margin: 10px;
+}
+
+.textList input {
+    width: 100%;
+}

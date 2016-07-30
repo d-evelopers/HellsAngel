@@ -5,12 +5,15 @@ const ipc = require('electron').ipcRenderer;
 function loadScript(script){
   return script.map(function(scene){
     var name = document.createElement('input');
+    name.className = 'characterName';
     name.value = scene.name;
 
     var character = document.createElement('img');
     character.src = scene.character.src;
+    character.className = 'sprite';
 
     var textList = document.createElement('ol');
+    textList.className = 'textList';
     scene.text.forEach(function(line){
       var row = document.createElement('li');
       var text = document.createElement('input');
@@ -20,9 +23,10 @@ function loadScript(script){
       textList.appendChild(row);
     });
 
-    var container = document.createElement('dev');
-    container.appendChild(name);
+    var container = document.createElement('div');
+    container.className = 'container';
     container.appendChild(character);
+    container.appendChild(name);
     container.appendChild(textList);
 
     return container;
