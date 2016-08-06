@@ -43,10 +43,15 @@ function loadScript(script){
 /**
  * Requests a script from the main process.
  *
+ * This function also sets the passed-in filename to the scriptName
+ * input, and the response will automagically load the script into the
+ * editor.
+ *
  * @param <String> name: The filename of the script to load.
  */
 function requestScript(name){
   ipc.send('request-script', name);
+  document.getElementById("scriptName").value = name;
 }
 
 /*
