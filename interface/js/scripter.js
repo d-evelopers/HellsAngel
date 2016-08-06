@@ -2,6 +2,13 @@
 
 const ipc = require('electron').ipcRenderer;
 
+/**
+ * Given a parsed script, this function will attempt to load its
+ * contents and generate editor elements for it that can be
+ * appendChild'd to a section of the editor..
+ *
+ * @param <Object> script: The parsed script, as read by JSON.parse()
+ */
 function loadScript(script){
   return script.map(function(scene){
     var name = document.createElement('input');
@@ -33,12 +40,26 @@ function loadScript(script){
   });
 }
 
+/**
+ * Requests a script from the main process.
+ *
+ * @param <String> name: The filename of the script to load.
+ */
+function requestScript(name){
+  ipc.send('request-script', name);
+}
+
+/*
+ * When we get a response after requesting a script, we want to load
+ * it right away!
+ */
 ipc.on('script-response', function(e, script){
   loadScript(JSON.parse(script)).forEach(function(node){
     document.getElementById('editor').appendChild(node);
   });
 });
 
+// As soon as the window finishes loading, request the default script.
 bind(window, function(){
-  ipc.send('request-script', "dev-mode.json");
+  requestScript("dev-mode.json");
 }, 'onload');
