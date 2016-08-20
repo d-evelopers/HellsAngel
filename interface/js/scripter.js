@@ -31,7 +31,7 @@ function loadScript(script){
     });
 
     var container = document.createElement('div');
-    container.className = 'container';
+    container.className = 'container scene';
     container.appendChild(character);
     container.appendChild(name);
     container.appendChild(textList);
