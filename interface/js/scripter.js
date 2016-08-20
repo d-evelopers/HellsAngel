@@ -54,6 +54,13 @@ function requestScript(name){
   document.getElementById("scriptName").value = name;
 }
 
+/**
+ * Clears the script area.
+ */
+function clearScript(){
+  document.getElementById('editor').innerHTML = "";
+}
+
 /*
  * When we get a response after requesting a script, we want to load
  * it right away!
