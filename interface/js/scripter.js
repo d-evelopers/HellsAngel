@@ -61,6 +61,26 @@ function clearScript(){
   document.getElementById('editor').innerHTML = "";
 }
 
+/**
+ * This function will return a JSON representation of this script that
+ * can then be saved in a file that is loadable with loadScript();
+ */
+function buildScript(){
+  return JSON.stringify($$("#editor .scene").map(function(scene){
+    return {
+      "name": scene.querySelector(".characterName").value,
+      "character": {
+        "src": scene.querySelector(".sprite").getAttribute("src"),
+        "position": "left",
+        "finish": "fade"
+      },
+      "text": Array.prototype.map.call(scene.querySelectorAll(".textList input"), function(text){
+        return text.value;
+      })
+    };
+  }));
+}
+
 /*
  * When we get a response after requesting a script, we want to load
  * it right away!
