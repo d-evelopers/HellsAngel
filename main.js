@@ -43,7 +43,22 @@ ipc.on("flags", function(e){
   });
 });
 
+/*
+ * When we get a "scripts" request, we should spit out the ".json"
+ * files in the "scripts" folder.
+ *
+ * If there is an error reading this, we just return as if there are
+ * no files to work with.
+ */
+ipc.on("scripts", function(e){
+  fs.readdir(path.join(__dirname, "scripts"), function(err, scripts){
+    e.sender.send("scripts", err ? [] : scripts.filter(function(script){
+      return /\.json$/.test(script);
+    }).map(function(script){
+      return script.replace(/\.json$/, "");
+    }));
   });
+});
 
 /*
  * Allow those who require this file to have access to the window
