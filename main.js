@@ -46,6 +46,15 @@ ipc.on("flags", function(e){
   });
 
 /*
+ * Allow those who require this file to have access to the window
+ * object via a callback.
+ */
+let callback;
+exports = function(fn){
+  callback = fn;
+};
+
+/*
  * Loads the main game window, and calls back anything that tried to
  * require this file with it
  */
@@ -75,4 +84,9 @@ app.on('ready', function(){
   window.on('closed', function(){
     window = null;
   });
+
+  // If we require this file, we can play with the window instance.
+  if(typeof callback === 'function'){
+    callback(window);
+  }
 });
