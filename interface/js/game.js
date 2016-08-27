@@ -67,12 +67,22 @@ function nextAction(){
   }
 }
 
+// Clicking the body should trigger the nextAction() function.
+bind("body", function(){
+  nextAction();
+});
+
+// Bind key events
+bind(window, function(e){
+  switch(e.code){
+    case "Enter":
+    case "Space":
+      nextAction();
+      break;
+  }
+}, "onkeyup");
+
 module.exports = function(flags){
   // Warning about no scenario, because there is no story yet.
   ipc.send('request-script', flags.devMode ? "dev-mode.json" : "empty.json");
-
-  // Clicking the body should trigger the nextAction() function.
-  bind("body", function(){
-    nextAction();
-  });
 };
