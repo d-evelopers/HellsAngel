@@ -91,6 +91,26 @@ ipc.on('script-response', function(e, script){
   });
 });
 
+/**
+ * Get all available scritpts from the main process and pass them
+ * through to the passed-in callback.
+ *
+ * @param <Function> callback (optional): The callback to pass the
+ * list of scripts to, the context of this function will become the
+ * event if you want to play with that as well.
+ *
+ * If no callback is specified, the results will just console.log().
+ */
+function getScripts(callback){
+  ipc.once('scripts', function(event, scripts){
+    (callback || function(scripts){
+      console.log.apply(console, scripts);
+    }).call(event, scripts);
+  });
+
+  ipc.send('scripts');
+}
+
 // As soon as the window finishes loading, request the default script.
 bind(window, function(){
   requestScript("dev-mode.json");
