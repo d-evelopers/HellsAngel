@@ -115,6 +115,25 @@ function getScripts(callback){
   ipc.send('scripts');
 }
 
+function buildScriptsSelect(scripts){
+  let select = document.createElement('select');
+
+  scripts.forEach(function(script){
+    let option = document.createElement('option');
+    option.value = script;
+    option.label = script;
+
+    select.appendChild(option);
+  });
+
+  select.onchange = function(e){
+    clearScript();
+    requestScript(e.target.value + ".json");
+  };
+
+  return select;
+}
+
 // As soon as the window finishes loading, request the default script.
 bind(window, function(){
   requestScript("dev-mode.json");
