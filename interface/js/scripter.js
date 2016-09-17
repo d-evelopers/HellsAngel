@@ -137,4 +137,8 @@ function buildScriptsSelect(scripts){
 // As soon as the window finishes loading, request the default script.
 bind(window, function(){
   requestScript("dev-mode.json");
+
+  getScripts(function(scripts){
+    document.getElementById('scriptList').appendChild(buildScriptsSelect(scripts));
+  });
 }, 'onload');
