@@ -115,12 +115,23 @@ function getScripts(callback){
   ipc.send('scripts');
 }
 
+/**
+ * Given a set of script names, creates an HTML select dropdown, and
+ * adds a change binding that will request the script be loaded if you
+ * pick it.
+ *
+ * @param <Array> scripts: The list of scripts to generate the
+ * dropdown with.
+ *
+ * @return <HTMLSelectElement>: a populated select that allows you to
+ * choose scripts to load.
+ */
 function buildScriptsSelect(scripts){
   let select = document.createElement('select');
 
   scripts.forEach(function(script){
     let option = document.createElement('option');
-    option.value = script;
+    option.value = script + ".json";
     option.label = script;
 
     select.appendChild(option);
@@ -128,7 +139,7 @@ function buildScriptsSelect(scripts){
 
   select.onchange = function(e){
     clearScript();
-    requestScript(e.target.value + ".json");
+    requestScript(e.target.value);
   };
 
   return select;
