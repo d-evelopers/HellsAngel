@@ -15,9 +15,11 @@ function loadScript(script){
     name.className = 'characterName';
     name.value = scene.name;
 
-    var character = document.createElement('img');
-    character.src = scene.character.src;
-    character.className = 'sprite';
+    if(scene.character){
+      var character = document.createElement('img');
+      character.src = scene.character.src;
+      character.className = 'sprite';
+    }
 
     var textList = document.createElement('ol');
     textList.className = 'textList';
@@ -32,7 +34,9 @@ function loadScript(script){
 
     var container = document.createElement('div');
     container.className = 'container scene';
-    container.appendChild(character);
+    if(character){
+      container.appendChild(character);
+    }
     container.appendChild(name);
     container.appendChild(textList);
 
