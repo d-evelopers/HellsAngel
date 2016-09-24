@@ -33,6 +33,18 @@ ipc.on("request-script", function(e, script){
   });
 });
 
+
+/*
+ * When we get a deletion request, whelp, gg script.
+ *
+ * It deletes the script from the sciprts folder.
+ */
+ipc.on("delete", function(e, script){
+  fs.unlink(path.join(__dirname, "scripts", script.replace(/\.{2,}/g, ".")), function(){
+    e.sender.send("deleted", script);
+  });
+});
+
 /*
  * When we get a "flags" request, we will send back an object
  * containing a select number of flags from the main process

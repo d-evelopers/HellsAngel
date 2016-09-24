@@ -95,6 +95,16 @@ ipc.on('script-response', function(e, script){
   });
 });
 
+/*
+ * When a file is deleted, we reaload the scripts in the dropdown and
+ * then load the first one.
+ */
+ipc.on('deleted', function(){
+  loadScripts(function(scripts){
+    requestScript(scripts[0] + ".json");
+  });
+});
+
 /**
  * Get all available scritpts from the main process and pass them
  * through to the passed-in callback.
@@ -113,6 +123,19 @@ function getScripts(callback){
   });
 
   ipc.send('scripts');
+}
+
+/**
+ * Sends a request to the main process to delete a particular script.
+ *
+ * @param <String> script: The script you wish to delete.
+ */
+function deleteScript(script){
+  if(confirm("Are you sure you want to delete " + script + "?")){
+    clearScript();
+    document.getElementById('scriptList').innerHTML = "";
+    ipc.send('delete', script);
+  }
 }
 
 /**
@@ -145,11 +168,21 @@ function buildScriptsSelect(scripts){
   return select;
 }
 
+/**
+ * Populates the script dropdown with whatever the server tells us we
+ * have.
+ */
+function loadScripts(callback){
+  getScripts(function(scripts){
+    document.getElementById('scriptList').appendChild(buildScriptsSelect(scripts));
+    if(callback){
+      callback(scripts);
+    }
+  });
+}
+
 // As soon as the window finishes loading, request the default script.
 bind(window, function(){
   requestScript("dev-mode.json");
-
-  getScripts(function(scripts){
-    document.getElementById('scriptList').appendChild(buildScriptsSelect(scripts));
-  });
+  loadScripts();
 }, 'onload');
