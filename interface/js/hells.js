@@ -60,3 +60,32 @@ function getSnippet(name){
   element.innerHTML =  $$(selector)[0].innerHTML;
   return element.children[0];
 }
+
+/**
+ * Creates a list of cliclable elements that a user can select
+ * from. When one is selected, the list dissapears and the value is
+ * passed to the callback.
+ *
+ * @param <Array> items: The items to select from.
+ * @param <Function> callback: The callback to call with the result.
+ *
+ * @returns the element to be appendChild'd to the DOM where you want
+ * the list.
+ */
+function makeList(items, callback){
+  let list = document.createElement('ol');
+  list.className = "userSelection";
+
+  items.forEach(function(item){
+    let element = document.createElement('li');
+    element.textContent = item;
+    list.appendChild(element);
+
+    list.onclick = function(){
+      callback(item);
+      list.parentNode.removeChild(list);
+    };
+  });
+
+  return list;
+}
