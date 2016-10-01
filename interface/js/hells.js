@@ -20,7 +20,7 @@ function $$(selector){
  * @return An array of all the elements bound. Useful for chaining.
  */
 function bind(target, callback, event){
-  var targets = typeof target === 'string' ? $$(target) : [].concat(target);
+  let targets = typeof target === 'string' ? $$(target) : [].concat(target);
   event = event || "onclick";
 
   return targets.map(function(targ){
@@ -38,7 +38,7 @@ function bind(target, callback, event){
  * passed-in selector.
  */
 function closest(element, selector){
-  var parent = element.parentElement;
+  let parent = element.parentElement;
   if(!parent){
     return element;
   }
@@ -54,8 +54,8 @@ function closest(element, selector){
  * @returns the contents of the snippet.
  */
 function getSnippet(name){
-  var selector = "script[type='snippet'][data-name='" + encodeURIComponent(name) + "']";
-  var element = document.createElement('div');
+  let selector = "script[type='snippet'][data-name='" + encodeURIComponent(name) + "']";
+  let element = document.createElement('div');
 
   element.innerHTML =  $$(selector)[0].innerHTML;
   return element.children[0];
