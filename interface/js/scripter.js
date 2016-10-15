@@ -181,8 +181,54 @@ function loadScripts(callback){
   });
 }
 
+/**
+ * Sets up the editor to create a new script.
+ */
+function newScript(){
+  let newButton = document.getElementById('new');
+  newButton.style.visibility = "hidden";
+  clearScript();
+
+  let nameElement = document.getElementById("scriptName");
+  nameElement.value = "";
+  nameElement.onchange = newScriptNamed;
+  nameElement.focus();
+
+  let newOption = document.createElement('option');
+  newOption.label = "<New>";
+
+  let scriptList = document.querySelector("#scriptList > select");
+
+  function newScriptNamed(e){
+    scriptList.removeEventListener("change", abortNew);
+    nameElement.onchange = null;
+    newButton.style.visibility = "";
+
+    let scriptOption = document.createElement('option');
+    let newName = nameElement.value.replace(/\.json$/, "");
+    scriptOption.label = newName;
+    scriptOption.value = newName + ".json";
+
+    scriptList.removeChild(newOption);
+    scriptList.appendChild(scriptOption);
+    scriptList.selectedIndex = scriptList.children.length - 1;
+  }
+
+  function abortNew() {
+    newButton.style.visibility = "";
+    scriptList.removeChild(newOption);
+    scriptList.removeEventListener("change", abortNew);
+    nameElement.onchange = null;
+  }
+
+  scriptList.addEventListener("change", abortNew);
+  scriptList.appendChild(newOption);
+  scriptList.selectedIndex = scriptList.children.length - 1;
+}
+
 // As soon as the window finishes loading, request the default script.
 bind(window, function(){
   requestScript("dev-mode.json");
   loadScripts();
+  document.getElementById("new").onclick = newScript;
 }, 'onload');
