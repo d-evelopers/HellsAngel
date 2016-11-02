@@ -33,6 +33,26 @@ ipc.on("request-script", function(e, script){
   });
 });
 
+/*
+ * When we get a script to write with content, we write the file, then
+ * depending on the success, we write back either a "write-status"
+ * with a true or false value and the script name,
+ *
+ * A write fail includes a fourth piece of data, which is the error
+ * that occured.
+ */
+ipc.on("write-script", function(e, script, content){
+  let name = path.join(__dirname, "scripts", script.replace(/\.{2,}/g, ".") + ".json");
+
+  fs.writeFile(name, content, function(err){
+    if(!err){
+      e.sender.send("write-status", true, script);
+    } else {
+      e.sender.send("write-status", false, script, e);
+      console.error("Failed to write the script:", script, "\n", err);
+    }
+  });
+});
 
 /*
  * When we get a deletion request, whelp, gg script.
