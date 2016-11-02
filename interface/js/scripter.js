@@ -226,9 +226,22 @@ function newScript(){
   scriptList.selectedIndex = scriptList.children.length - 1;
 }
 
+/**
+ * Saves the current editor contents to the current script name.
+ */
+function saveScript(){
+  let name = document.getElementById("scriptName").value.replace(/\.json$/, "");
+  ipc.once('write-status', function(success, script, err){
+    alert(success ? "Write suceess!" : "Write fail :(");
+  });
+
+  ipc.send('write-script', name, buildScript());
+}
+
 // As soon as the window finishes loading, request the default script.
 bind(window, function(){
   requestScript("dev-mode.json");
   loadScripts();
   document.getElementById("new").onclick = newScript;
+  document.getElementById("save").onclick = saveScript;
 }, 'onload');
