@@ -27,11 +27,11 @@
   },
   "homepage": "https://github.com/d-evelopers/HellsAngel#readme",
   "dependencies": {
-    "electron-prebuilt": "^1.2.6"
+    "electron": "^1.4.15"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "electron-mocha": "^2.3.0",
+    "electron-mocha": "^3.3.0",
     "npm-run-all": "^2.3.0"
   }
 }
