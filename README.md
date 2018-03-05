@@ -1,7 +1,16 @@
 # Hell's Angel #
-Hell's Angel is a game where you somehow find a devil girl in your
-care. Neither of you know where she came from, but if she is going to
-live with you, she is going to have to live under your rules.
+In it's current form, this is a VN engine with some development tools
+that were made to allow a number of people who wanted to build a game
+to do just that!
+
+Hell's Angel was planned to be a game where you somehow find a devil girl
+in your care. The idea was that neither of you knew where she came from,
+but if she was going to live with you, she was going to have to live
+under your rules.
+
+This repo is currently dormant, but if there is interest to make
+something with it, maybe I'll just have to continue to build the tools to
+do so..!
 
 [![Build Status](https://travis-ci.org/d-evelopers/HellsAngel.svg?branch=master)](https://travis-ci.org/d-evelopers/HellsAngel)
 
